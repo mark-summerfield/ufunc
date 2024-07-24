@@ -3,7 +3,9 @@ clc -s -e ufunc_test.go
 cat Version.dat
 go mod tidy
 go fmt .
-staticcheck .
+echo can\'t run staticcheck due to rangefuncs
+#staticcheck .
 go vet .
-golangci-lint run
+echo can\'t run golangci-lint due to rangefuncs
+#golangci-lint run
 git st
