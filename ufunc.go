@@ -1,5 +1,8 @@
 // Copyright © 2024 Mark Summerfield. All rights reserved.
 
+// This package provides some generic range functions (including Map,
+// Reduce, Zip, and ZipLongest) and fills in some gaps in the slices
+// package.
 package ufunc
 
 import (
