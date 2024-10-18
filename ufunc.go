@@ -2,7 +2,9 @@
 
 // This package provides some generic range functions (including Map,
 // Reduce, Zip, and ZipLongest) and fills in some gaps in the slices
-// package.
+// package. ([TOC])
+//
+// [TOC]: file:///home/mark/app/golib/doc/index.html
 package ufunc
 
 import (
