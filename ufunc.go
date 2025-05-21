@@ -1,8 +1,8 @@
 // Copyright © 2024 Mark Summerfield. All rights reserved.
 
-// This package provides some generic range functions (including Map,
-// Reduce, Zip, and ZipLongest) and fills in some gaps in the slices
-// package. ([TOC])
+// ([TOC]) This package provides some generic range functions (including
+// Map, Reduce, Zip, and ZipLongest) and fills in some gaps in the slices
+// package.
 //
 // [TOC]: file:///home/mark/app/golib/doc/index.html
 package ufunc
@@ -12,7 +12,7 @@ import (
 	"iter"
 	"slices"
 
-	"github.com/mark-summerfield/ureal"
+	"github.com/mark-summerfield/unum"
 )
 
 //go:embed Version.dat
@@ -116,7 +116,7 @@ func Merge[E any](rfns ...iter.Seq[E]) iter.Seq[E] {
 // before end in steps of 1.
 //
 //	for x := range Range(5, 15) { // 5 6 7 … 14
-func Range[N ureal.SignedNumber](start, end N) iter.Seq[N] {
+func Range[N unum.SignedNumber](start, end N) iter.Seq[N] {
 	return RangeX(start, end, 1)
 }
 
@@ -126,7 +126,7 @@ func Range[N ureal.SignedNumber](start, end N) iter.Seq[N] {
 // The step must be a magnitude > 0 or RangeX will panic.
 //
 //	for x := range RangeX(1.0, 8.5, 0.5) { // 1.0 1.5 2.0 … 8.0
-func RangeX[N ureal.SignedNumber](start, end, step N) iter.Seq[N] {
+func RangeX[N unum.SignedNumber](start, end, step N) iter.Seq[N] {
 	if step <= 0 {
 		panic("step size must be > 0")
 	}
@@ -224,7 +224,6 @@ func ZipLongest[E any](rfns ...iter.Seq[E]) iter.Seq[[]E] {
 					row = append(row, element)
 				} else {
 					row = append(row, zero)
-
 				}
 			}
 			if oks == 0 || !yield(row) {
